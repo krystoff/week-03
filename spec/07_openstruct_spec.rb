@@ -16,8 +16,11 @@ describe "Current Administration" do
     # Then you can assign any properties on the OpenStruct
     administration.president = "Barack Obama"
     
-    administration.vice_president = "Broseph Jiden"
-    
+    administration.vice_president = "Joe Biden"
+    administration.first_lady = "Michelle Obama"
+        
+    administration.cabinet = [administration.vice_president, administration.first_lady, (state_department => "Hillary Clinton")]
+        
     # This last line has `administration` so that it is returned as the subject
     administration
   end
@@ -26,7 +29,7 @@ describe "Current Administration" do
     subject.should respond_to :president
     
   end
-
+  
   it "should report the correct President" do
     subject.president.should == "Barack Obama"
   end
